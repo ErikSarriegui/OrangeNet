@@ -1,0 +1,9 @@
+{
+    "classes" : ["blackspot", "canker", "fresh", "grenning"],
+    "id" : {
+        "0" : "blackspot",
+        "1" : "canker",
+        "2" : "fresh",
+        "3" : "grenning"
+    }
+}
