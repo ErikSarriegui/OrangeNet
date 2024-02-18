@@ -1,14 +1,18 @@
 ![logo](https://github.com/ErikSarriegui/OrangeNet/assets/92121483/b8e18ac1-8d33-4b56-b6ba-c49315114ae3)
+[Colab](https://colab.research.google.com/drive/1YSRlpqJtUH-S5jdAkem0hoEXsZZPciuK?usp=sharing)
 # **Introducción**
 Este proyecto tiene como objetivo la clasificación de imágenes de naranajas según la enfermedad que esta puede sufrir (o nada en el caso de que no se detecte ningún tipo de enfermedad).
 
 # **Instalación**
+Para poder utilizar este repositorio, primero deberá clonarlo.
+```
+$ git clone https://github.com/ErikSarriegui/OrangeNet.git
+´´´
 
 # **QuickStart**
 ## 1.1 Utilizando `runner.ipynb`
-Comience clonando el repositorio e instalando las dependencias necesarias:
+Habiendo clonado el repositorio, comience clonando instalando las dependencias necesarias:
 ```
-$ git clone https://github.com/ErikSarriegui/OrangeNet.git
 $ pip install -r requirements.txt
 ```
 
