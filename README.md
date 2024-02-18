@@ -19,7 +19,6 @@ $ pip install -r requirements.txt
 Puede realizar las primeras predicciones ejecutando la primer celda cuaderno `runner.ipynb`. En el caso de querer intercambiar la imagen a clasificar, simplemente inserte la ruta de su imagen:
 ```
 import predictions
-
 predictions.inference("""Su/ruta/aquí""")
 ```
 ## 1.2 Utilizando `web_ui.ipynb`
