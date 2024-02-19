@@ -3,7 +3,7 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eriksarriegui/orangenet/blob/main/web_ui.ipynb)
 
 # **Introducción**
-Este proyecto tiene como objetivo la clasificación de imágenes de naranajas según la enfermedad que esta puede sufrir (o nada en el caso de que no se detecte ningún tipo de enfermedad).
+Este proyecto tiene como objetivo la clasificación de imágenes de naranjas para identificar la enfermedad que las afecta, si es que la hay. En caso de que no se detecte ningún tipo de enfermedad, la imagen se clasificará como "sana".
 
 # **Instalación**
 Para poder utilizar este repositorio, primero deberá clonarlo.
@@ -13,10 +13,23 @@ $ git clone https://github.com/ErikSarriegui/OrangeNet.git
 
 # **QuickStart**
 ## 1.1 Utilizando `web_ui.ipynb` [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eriksarriegui/orangenet/blob/main/web_ui.ipynb)
-Puede utilizar el cuaderno Google Colab que hemos preparado para poder probar el modelo con sus propias imágenes. Únicamente debe ejecutar el cuaderno de Colab y podrá acceder a un enlace a una interfaz creada con [Gradio](https://www.gradio.app/) en la que podrá utilizar el modelo.
+Prueba el modelo con tus propias imágenes
+
+Para que puedas probar el modelo con tus propias imágenes, hemos creado un cuaderno de Google Colab. Sigue estos pasos:
+
+1. Accede al siguiente enlace: [Insertar enlace al cuaderno de Google Colab]
+2. Ejecuta el cuaderno.
+3. Obtén el enlace a la interfaz de Gradio. El enlace se mostrará en la última celda del cuaderno.
+4. Abre el enlace en un navegador web.
+5. Sube tus imágenes y el modelo las clasificará automáticamente.
 
 ## 1.2 Utilizando el Pipeline
-Para poder utilizar el Pipeline, primero deberá clonar el repositorio. Después podrá utilizar la clase `pipeline.OrangePipeline()` para poder realizar sus predicciones. Esta clase dispone de un método `self.inference()` (además de un método privado `self.__inference()`) que le permitirá clasificar naranjas. Este método permite que la imagen de entrada sea un `np.ndarray` así como un `PIL.Image` e incluso un `str` que sea el path a la imagen.
+Para utilizar el pipeline, siga estos pasos:
+1. Importar la clase `OrangePipeline`:
+     ```python
+     from pipeline import OrangePipeline
+     ```
+3. 
 
 ```python
 from pipeline import OrangePipeline
@@ -27,7 +40,7 @@ print(preds)
 ```
 
 # **Modelo**
-Actualmente se utiliza un modelo ResNet50 en solitario que obtiene un >99% de precisión sobre los datos de testeo. Sin embargo, por la tipología del problema, en el caso de querer implementar el modelo en un caso de uso real, sería recomendable complementarlo con un modelo de segmentación previo. Cabe resaltar que, aunque el modelo haya podido confudir alguna (<1%) enfermedad con otra, en ningún momento ha confundido una naranja enferma con una fresca. El entrenamiento se ha realizado sobre una Nvidia Tesla T4 y durante, aproximadamente, 87 segundos.
+Actualmente se utiliza un modelo ResNet50 en solitario que obtiene un >99% de precisión sobre el dataset de testeo. Sin embargo, por la tipología del problema, en el caso de querer implementar el modelo en un caso de uso real, sería recomendable complementarlo con un modelo de segmentación previo. Cabe resaltar que, aunque el modelo haya podido confudir alguna (<1%) enfermedad con otra, en ningún momento ha confundido una naranja enferma con una fresca. El entrenamiento se ha realizado sobre una Nvidia Tesla T4 y durante, aproximadamente, 87 segundos.
 
 ## **Rendimiendo del modelo**
 | Modelo   | Precisión  | Nº Parámetros  |
