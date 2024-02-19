@@ -88,7 +88,8 @@ El entrenamiento del modelo se realizó en una Nvidia Tesla T4 durante aproximad
 Aunque el modelo ResNet50 por sí solo ya ofrece una alta precisión, la adición de un modelo de segmentación previo podría mejorar aún más el rendimiento, ya que, en un entorno de producción, el fondo no siempre será uniforme  y las condiciones de iluminación pueden variar considerablemente. Un modelo de segmentación puede ayudar a eliminar el impacto de estos factores externos, permitiendo al modelo ResNet50 enfocarse en las características relevantes de la naranja para una clasificación más precisa.
 
 # **Tutorial en profundidad**
-| data_setup.py  |  El script data_setup.py contiene una única función, `crear_dataloaders`, que se encarga de crear los `torch.utils.data.DataLoaders` necesarios para entrenar al modelo.
+**data_setup.py:**
+El script data_setup.py contiene una única función, `crear_dataloaders`, que se encarga de crear los `torch.utils.data.DataLoaders` necesarios para entrenar al modelo.
 
 Funcionalidades:
 Carga los datasets de entrenamiento y test como objetos `torchvision.datasets.ImageFolder`.
@@ -98,8 +99,6 @@ Devuelve una tupla con:
 `train_dataloader`: DataLoader para el conjunto de entrenamiento.
 `test_dataloader`: DataLoader para el conjunto de test.
 `class_names`: Lista con las clases a predecir (nombres de las carpetas del dataset). |
-|---|---|
-|   |   |
 
 # **Dataset**
 El dataset se puede encontrar en Kaggle [Kaggle](https://www.kaggle.com/datasets/jonathansilva2020/orange-diseases-dataset) y se hace referencia al siguiente [artículo](https://www.researchgate.net/publication/351229211_IDiSSC_Edge-computing-based_Intelligent_Diagnosis_Support_System_for_Citrus_Inspection).
