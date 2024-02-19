@@ -143,8 +143,7 @@ Resultado:
 Funcionalidades:
  * Carga el último modelo ResNet50 guardado en la carpeta `models`.
  * Carga las etiquetas del modelo desde el archivo `labels.json`.
- * Define un preprocesamiento de imágenes usando transformaciones de torchvision``.
-
+ * Define un preprocesamiento de imágenes usando transformaciones de `torchvision`.
 Métodos:
  * `inference`(img): Recibe una imagen (`path`, `np.ndarray` o `PIL.Image`) y devuelve un diccionario con las probabilidades de cada clase de naranja.
  * `__inference`(img_tensor): Método interno que realiza la inferencia con el modelo cargado y procesa el resultado.
@@ -166,6 +165,22 @@ prediccion = pipeline.inference(ruta_imagen)
 for label, probabilidad in prediccion.items():
     print(f"{label}: {probabilidad}")
 ```
+
+**[train.py:](https://github.com/ErikSarriegui/OrangeNet/blob/main/train.py)**
+Funcionalidades
+ * Define las transformaciones de imágenes: redimensionamiento y conversión a tensor.
+ * Crea `train_dataloader` y `test_dataloader` con `data_setup.crear_dataloaders`.
+ * Carga la arquitectura ResNet50 con model.cargar_ResNet50.
+ * Define la función de pérdida `CrossEntropyLoss`.
+ * Configura el optimizador `Adam` con tasa de aprendizaje y decaimiento de peso.
+ * Crea un escalador `GradScaler` para mejorar el entrenamiento.
+ * Entrena el modelo usando `engine.train` con las configuraciones predefinidas.
+ * Guarda el estado del modelo entrenado en `models`.
+
+Resultado
+    * Se entrena un modelo de clasificación de naranjas con ResNet50.
+    * Se guarda el modelo entrenado en models/OrangeNet_{}.pt.
+    * El script se puede modificar para ajustar parámetros de entrenamiento, arquitectura o datos.
 
 # **Dataset**
 El dataset se puede encontrar en Kaggle [Kaggle](https://www.kaggle.com/datasets/jonathansilva2020/orange-diseases-dataset) y se hace referencia al siguiente [artículo](https://www.researchgate.net/publication/351229211_IDiSSC_Edge-computing-based_Intelligent_Diagnosis_Support_System_for_Citrus_Inspection).
