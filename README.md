@@ -18,7 +18,7 @@ Puede utilizar el cuaderno Google Colab [![Open In Colab](https://colab.research
 ## 1.2 Utilizando el Pipeline
 Para poder utilizar el Pipeline, primero deberá clonar el repositorio. Después podrá utilizar la clase `pipeline.OrangePipeline()` para poder realizar sus predicciones. Esta clase dispone de un método `self.inference()` (además de un método privado `self.__inference()`) que le permitirá clasificar naranjas. Este método permite que la imagen de entrada sea un `np.ndarray` así como un `PIL.Image` e incluso un `str` que sea el path a la imagen.
 
-```
+```python
 from pipeline import OrangePipeline
 
 model = OrangePipeline()
