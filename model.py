@@ -6,7 +6,7 @@ import torchvision
 import torch
 from torch import nn
 
-def cargar_ResNet50(out_features : int = 4):
+def cargar_ResNet50(out_features : int = 4) -> torch.nn.Module: # 4 por las classes de clasificación
   """
   Esta función crea una instancia del modelo que se va a utilizar.
 

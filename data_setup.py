@@ -14,7 +14,7 @@ def crear_dataloaders(
     transforms: torchvision.transforms.Compose,
     batch_size: int,
     num_workers: int = NUM_WORKERS
-):
+) -> tuple:
   """
   Esta función crea los DataLoaders, tanto de entrenamiento como de testeo.
 

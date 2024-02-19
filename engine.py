@@ -58,23 +58,23 @@ def train_step(
 
     epoch_loss, epoch_acc = 0, 0
 
-    for batch_idx, (data, targets) in enumerate(train_dataloader):
+    for training_batch, targets in train_dataloader:
         model.train()
-        data, targets = data.to(device), targets.to(device)
+        training_batch, targets = training_batch.to(device), targets.to(device)
 
         # Zero the gradients
         optimizer.zero_grad()
 
         # Enable autocasting for mixed precision
         with autocast():
-            outputs = model(data)
-            loss = loss_function(outputs, targets)
+            logits_outputs = model(training_batch)
+            loss = loss_function(logits_outputs, targets)
         
-        preds = outputs.argmax(dim = 1)
-        acc = accuracy_fn(preds.cpu(), targets.cpu())
+        predictions_labels = logits_outputs.argmax(dim = 1)
+        batch_accuracy = accuracy_fn(predictions_labels.cpu(), targets.cpu())
         
         epoch_loss += loss.item()
-        epoch_acc += acc.item()
+        epoch_acc += batch_accuracy.item()
 
         # Perform backward pass and gradient scaling
         scaler.scale(loss).backward()
@@ -83,7 +83,7 @@ def train_step(
         scaler.step(optimizer)
         scaler.update()
 
-    train_batches_acc.append(epoch_loss / len(train_dataloader))
+    train_batches_loss.append(epoch_loss / len(train_dataloader))
     train_batches_acc.append(epoch_acc / len(train_dataloader))
 
 
@@ -125,19 +125,19 @@ def test_step(
     """
     epoch_loss, epoch_acc = 0, 0
   
-    for data, targets in test_dataloader:
-        data, targets = data.to(device), targets.to(device)
+    for test_batch, targets in test_dataloader:
         model.eval()
+        test_batch, targets = test_batch.to(device), targets.to(device)
         
         with torch.inference_mode():
-            logits = model(data)
+            logits = model(test_batch)
             loss = loss_function(logits, targets)
         
         preds = logits.argmax(dim = 1)
-        acc = accuracy_fn(preds.cpu(), targets.cpu())
+        batch_accuracy = accuracy_fn(preds.cpu(), targets.cpu())
 
         epoch_loss += loss.item()
-        epoch_acc += acc.item()
+        epoch_acc += batch_accuracy.item()
 
     test_batches_loss.append(epoch_loss / len(test_dataloader))
     test_batches_acc.append(epoch_acc / len(test_dataloader))
@@ -155,7 +155,7 @@ def train(
     scaler: torch.cuda.amp,
     num_epochs: int,
     device: str
-    ):
+    ) -> dict:
     """
     Esta función agrupa tanto la fución de train_step como la
     de test_setp para realizar un entrenamiento y testeo
