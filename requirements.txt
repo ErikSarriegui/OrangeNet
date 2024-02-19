@@ -1,0 +1,11 @@
+os
+zipfile
+kaggle
+torch
+torchmetrics
+tqdm
+torchvision
+numpy
+PIL
+json
+gradio

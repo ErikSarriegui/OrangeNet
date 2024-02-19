@@ -83,8 +83,6 @@ def train_step(
         scaler.step(optimizer)
         scaler.update()
 
-        print(f"Batch: {batch_idx} -> Train loss: {loss.item()} | Train accuracy: {acc.item()}")
-
     train_batches_acc.append(epoch_loss / len(train_dataloader))
     train_batches_acc.append(epoch_acc / len(train_dataloader))
 
