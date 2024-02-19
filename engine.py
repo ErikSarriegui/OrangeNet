@@ -158,59 +158,58 @@ def train(
     num_epochs: int,
     device: str
     ):
-  """
-  Esta función agrupa tanto la fución de train_step como la
-  de test_setp para realizar un entrenamiento y testeo
-  conjunto en una misma función.
-
-  Args:
-    model: El modelo a entrenar.
-    train_dataloader: El DataLoader con los datos de entrenamiento.
-    test_dataloader: El DataLoader con los datos de testeo.
-    loss_function: La función de pérdida.
-    optimizer: El optimizador.
-    accuracy_fn: La función de precisión, siempre Accuracy de
-    torchmetrics.
-    scaler: El scaler.
-    num_epochs: El número de epochs con los que se entrenará y
-    testeará el modelo
-    device: Dispositivo (cpu o cuda) en el que se realizará
-    el entrenamiento y testeo
-
-  Devuelve:
-    Devuelve un dict con la pérdida y la precisión de todos los batches
-    en todos los epochs. Esta pensado para hacer plots.
-  """
-  train_batches_loss, train_batches_acc = [], []
-  test_batches_loss, test_batches_acc = [], []
-
-  for epoch in tqdm(range(num_epochs)):
-    train_step(
-        model = model,
-        train_dataloader = train_dataloader,
-        optimizer = optimizer,
-        loss_function = loss_function,
-        accuracy_fn = accuracy_fn,
-        scaler = scaler,
-        train_batches_loss = train_batches_loss,
-        train_batches_acc = train_batches_acc,
-        device = device
-        )
-    
-    test_step(
-        model = model,
-        test_dataloader = test_dataloader,
-        loss_function = loss_function,
-        accuracy_fn = accuracy_fn,
-        test_batches_loss = test_batches_loss,
-        test_batches_acc = test_batches_acc,
-        device = device
-        )
     """
-    if epoch % 1 == 0:
-      print(f"{epoch}: Training Loss: {train_batches_loss[-1]} / Trainng Accuraccy: {train_batches_acc[-1]} || Testing Loss: {test_batches_loss[-1]} / Testing Accuraccy: {test_batches_acc[-1]}")
+    Esta función agrupa tanto la fución de train_step como la
+    de test_setp para realizar un entrenamiento y testeo
+    conjunto en una misma función.
+
+    Args:
+        model: El modelo a entrenar.
+        train_dataloader: El DataLoader con los datos de entrenamiento.
+        test_dataloader: El DataLoader con los datos de testeo.
+        loss_function: La función de pérdida.
+        optimizer: El optimizador.
+        accuracy_fn: La función de precisión, siempre Accuracy de
+        torchmetrics.
+        scaler: El scaler.
+        num_epochs: El número de epochs con los que se entrenará y
+        testeará el modelo
+        device: Dispositivo (cpu o cuda) en el que se realizará
+        el entrenamiento y testeo
+
+    Devuelve:
+        Devuelve un dict con la pérdida y la precisión de todos los batches
+        en todos los epochs. Esta pensado para hacer plots.
     """
-    
+    train_batches_loss, train_batches_acc = [], []
+    test_batches_loss, test_batches_acc = [], []
+
+    for epoch in tqdm(range(num_epochs)):
+        train_step(
+            model = model,
+            train_dataloader = train_dataloader,
+            optimizer = optimizer,
+            loss_function = loss_function,
+            accuracy_fn = accuracy_fn,
+            scaler = scaler,
+            train_batches_loss = train_batches_loss,
+            train_batches_acc = train_batches_acc,
+            device = device
+            )
+        
+        test_step(
+            model = model,
+            test_dataloader = test_dataloader,
+            loss_function = loss_function,
+            accuracy_fn = accuracy_fn,
+            test_batches_loss = test_batches_loss,
+            test_batches_acc = test_batches_acc,
+            device = device
+            )
+        
+        if epoch % 1 == 0:
+            print(f"{epoch}: Training Loss: {train_batches_loss[-1]} / Trainng Accuraccy: {train_batches_acc[-1]} || Testing Loss: {test_batches_loss[-1]} / Testing Accuraccy: {test_batches_acc[-1]}")
+        
     return {
         "train_batches_loss" : train_batches_loss,
         "train_batches_acc" : train_batches_acc,
