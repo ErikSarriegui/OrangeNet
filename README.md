@@ -27,14 +27,15 @@ print(preds)
 ```
 
 # **Modelo**
-Actualmente se utiliza un modelo ResNet50 en solitario que obtiene un >99% de precisión sobre los datos de testeo. Sin embargo, por la tipología del problema, en el caso de querer implementar el modelo en un caso de uso real, sería recomendable complementarlo con un modelo de segmentación previo. Cabe resaltar que, aunque el modelo haya podido confudir alguna (<1%) enfermedad con otra, en ningún momento ha confundido una naranja enferma con una fresca.
+Actualmente se utiliza un modelo ResNet50 en solitario que obtiene un >99% de precisión sobre los datos de testeo. Sin embargo, por la tipología del problema, en el caso de querer implementar el modelo en un caso de uso real, sería recomendable complementarlo con un modelo de segmentación previo. Cabe resaltar que, aunque el modelo haya podido confudir alguna (<1%) enfermedad con otra, en ningún momento ha confundido una naranja enferma con una fresca. El entrenamiento se ha realizado sobre una Nvidia Tesla T4 y durante, aproximadamente, 87 segundos.
+
+## **Rendimiendo del modelo**
 | Modelo   | Precisión  | Nº Parámetros  |
 |---|---|---|
 | ResNet50  | 99,36%  | 24,033,604  |
 
 ## **Confusion Matrix**
 ![confusion_matrix](https://github.com/ErikSarriegui/OrangeNet/assets/92121483/3a327835-a3ac-4f11-9ec7-af06eeb0e9ef)
-
 
 # **Tutorial en profundidad**
 PROXIMAMENTE
