@@ -89,12 +89,14 @@ Aunque el modelo ResNet50 por sí solo ya ofrece una alta precisión, la adició
 
 # **Tutorial en profundidad**
 **[data_setup.py:](https://github.com/ErikSarriegui/OrangeNet/blob/main/data_setup.py)**
+
 El script data_setup.py contiene una única función, `crear_dataloaders`, que se encarga de crear los `torch.utils.data.DataLoaders` necesarios para entrenar al modelo.
 
 Funcionalidades:
  * Carga los datasets de entrenamiento y test como objetos `torchvision.datasets.ImageFolder`.
  * Aplica las transformaciones especificadas en `transforms` a las imágenes de los datasets.
  * Crea dos `torch.utils.data.DataLoaders`, uno para entrenamiento y otro para test.
+
 Resultado:
  * Devuelve una tupla con:
     - `train_dataloader`: DataLoader para el conjunto de entrenamiento.
@@ -102,31 +104,39 @@ Resultado:
     - `class_names`: Lista con las clases a predecir (nombres de las carpetas del dataset).
 
 **[download_data.ipynb:](https://github.com/ErikSarriegui/OrangeNet/blob/main/download_data.ipynb)**
+
 Funcionalidades:
  * Descarga el conjunto de datos "Orange Diseases Dataset" de Kaggle.
  * Descomprime el archivo `.zip` descargado en la carpeta data.
  * Elimina el archivo `.zip` original.
+
 Detalles:
   * Autentica la API de Kaggle usando `api.authenticate()` por lo que es importante tener el archivo `.env` con tus credenciales.
+
 Resultado:
   * Se crea la carpeta `data` con el conjunto de datos descomprimido.
   * Se elimina el archivo `orange-diseases-dataset.zip`.
 
 **[engine.py:](https://github.com/ErikSarriegui/OrangeNet/blob/main/engine.py)**
+
 Funcionalidades:
  * Entrenamiento y testeo de un modelo de clasificación de naranjas con Visión Artificial.
-Contiene 3 funciones:
+
+Métodos:
  * `train_step`: Realiza un paso de entrenamiento sobre un batch de datos.
  * `test_step`: Realiza un paso de testeo sobre un batch de datos.
  * `train`: Agrupa las funciones anteriores para realizar un entrenamiento completo con testeo en cada epoch.
+
 Detalles:
  * Implementa un bucle de entrenamiento y testeo con `tqdm`.
  * Utiliza mixed precision training con `torch.cuda.amp`.
  * Calcula y guarda la pérdida y la precisión en cada epoch para entrenamiento y testeo.
+
 Resultado:
  * Devuelve un diccionario con las listas de pérdida y precisión para poder hacer plots.
 
 **[model.py:](https://github.com/ErikSarriegui/OrangeNet/blob/main/model.py)**
+
 Funcionalidades:
  * Carga el modelo ResNet50 pre-entrenado con pesos por defecto.
  * Congela las capas convolucionales del modelo para evitar que se actualicen durante el entrenamiento.
@@ -140,6 +150,7 @@ Resultado:
  * La función devuelve una instancia del modelo `torch.nn.Module` que representa el modelo ResNet50 con la cabeza modificada.
 
 **[pipeline.py:](https://github.com/ErikSarriegui/OrangeNet/blob/main/pipeline.py)**
+
 Funcionalidades:
  * Carga el último modelo ResNet50 guardado en la carpeta `models`.
  * Carga las etiquetas del modelo desde el archivo `labels.json`.
@@ -167,6 +178,7 @@ for label, probabilidad in prediccion.items():
 ```
 
 **[train.py:](https://github.com/ErikSarriegui/OrangeNet/blob/main/train.py)**
+
 Funcionalidades
  * Define las transformaciones de imágenes: redimensionamiento y conversión a tensor.
  * Crea `train_dataloader` y `test_dataloader` con `data_setup.crear_dataloaders`.
