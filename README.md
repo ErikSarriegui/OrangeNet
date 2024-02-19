@@ -12,19 +12,18 @@ $ git clone https://github.com/ErikSarriegui/OrangeNet.git
 ```
 
 # **QuickStart**
-## 1.1 Utilizando `runner.ipynb`
-Habiendo clonado el repositorio, comience clonando instalando las dependencias necesarias:
-```
-$ pip install -r requirements.txt
-```
+## 1.1 Utilizando `web_ui.ipynb`
+Puede utilizar el cuaderno Google Colab [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eriksarriegui/orangenet/blob/main/web_ui.ipynb) que hemos preparado para poder probar el modelo con sus propias imágenes. Únicamente debe ejecutar el cuaderno de Colab y podrá acceder a un enlace a una interfaz creada con [Gradio](https://www.gradio.app/) en la que podrá utilizar el modelo.
 
-Puede realizar las primeras predicciones ejecutando la primer celda cuaderno `runner.ipynb`. En el caso de querer intercambiar la imagen a clasificar, simplemente inserte la ruta de su imagen:
+## 1.2 Utilizando el Pipeline
+Para poder utilizar el Pipeline, primero deberá clonar el repositorio. Después podrá utilizar la clase `pipeline.OrangePipeline()` para poder realizar sus predicciones. Esta clase dispone de un método `self.inference()` (además de un método privado `self.__inference()`) que le permitirá clasificar naranjas. Este método permite que la imagen de entrada sea un `np.ndarray` así como un `PIL.Image` e incluso un `str` que sea el path a la imagen.
+
 ```
-import predictions
-predictions.inference("""Su/ruta/aquí""")
+from pipeline import OrangePipeline
+
+model = OrangePipeline()
+preds = OrangePipeline('/path/a/imagen' | PIL.Image | np.ndarray)
 ```
-## 1.2 Utilizando `web_ui.ipynb`
-Además, ejecutando la primera celda de web_ui, aparecerá un enlace a una interfaz creada con [Gradio](https://www.gradio.app/) en la que podrá utilizar el modelo.
 
 # **Modelo**
 Actualmente se utiliza un modelo ResNet50 en solitario que obtiene un >97% de precisión sobre los datos de testeo. Sin embargo, por la tipología del problema, en el caso de querer implementar el modelo en un caso de uso real, sería recomendable complementarlo con un modelo de segmentación previo.
