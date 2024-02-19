@@ -32,6 +32,10 @@ Actualmente se utiliza un modelo ResNet50 en solitario que obtiene un >97% de pr
 |---|---|---|
 | ResNet50  | 99,36%  | 24,033,604  |
 
+## **Confusion Matrix**
+![confusion_matrix](https://github.com/ErikSarriegui/OrangeNet/assets/92121483/3a327835-a3ac-4f11-9ec7-af06eeb0e9ef)
+
+
 # **Tutorial en profundidad**
 PROXIMAMENTE
 
