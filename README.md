@@ -12,8 +12,8 @@ $ git clone https://github.com/ErikSarriegui/OrangeNet.git
 ```
 
 # **QuickStart**
-## 1.1 Utilizando `web_ui.ipynb`
-Puede utilizar el cuaderno Google Colab [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eriksarriegui/orangenet/blob/main/web_ui.ipynb) que hemos preparado para poder probar el modelo con sus propias imágenes. Únicamente debe ejecutar el cuaderno de Colab y podrá acceder a un enlace a una interfaz creada con [Gradio](https://www.gradio.app/) en la que podrá utilizar el modelo.
+## 1.1 Utilizando `web_ui.ipynb` [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eriksarriegui/orangenet/blob/main/web_ui.ipynb)
+Puede utilizar el cuaderno Google Colab que hemos preparado para poder probar el modelo con sus propias imágenes. Únicamente debe ejecutar el cuaderno de Colab y podrá acceder a un enlace a una interfaz creada con [Gradio](https://www.gradio.app/) en la que podrá utilizar el modelo.
 
 ## 1.2 Utilizando el Pipeline
 Para poder utilizar el Pipeline, primero deberá clonar el repositorio. Después podrá utilizar la clase `pipeline.OrangePipeline()` para poder realizar sus predicciones. Esta clase dispone de un método `self.inference()` (además de un método privado `self.__inference()`) que le permitirá clasificar naranjas. Este método permite que la imagen de entrada sea un `np.ndarray` así como un `PIL.Image` e incluso un `str` que sea el path a la imagen.
