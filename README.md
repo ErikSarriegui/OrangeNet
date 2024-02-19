@@ -1,6 +1,7 @@
 ![OrangeNet](https://github.com/ErikSarriegui/OrangeNet/assets/92121483/bfa99b7e-a1a1-4a7a-bfde-5a8ef4ac8ca4)
-Open In Colab![Uploading OrangeNet (1).jpg…]()
-](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eriksarriegui/orangenet/blob/main/web_ui.ipynb)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eriksarriegui/orangenet/blob/main/web_ui.ipynb)
+
 # **Introducción**
 Este proyecto tiene como objetivo la clasificación de imágenes de naranajas según la enfermedad que esta puede sufrir (o nada en el caso de que no se detecte ningún tipo de enfermedad).
 
