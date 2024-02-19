@@ -22,7 +22,8 @@ Para poder utilizar el Pipeline, primero deberá clonar el repositorio. Después
 from pipeline import OrangePipeline
 
 model = OrangePipeline()
-preds = OrangePipeline('/path/a/imagen' | PIL.Image | np.ndarray)
+preds = model.inference('/path/a/imagen' | PIL.Image | np.ndarray)
+print(preds)
 ```
 
 # **Modelo**
