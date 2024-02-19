@@ -7,7 +7,7 @@ Este proyecto tiene como objetivo la clasificación de imágenes de naranajas se
 
 # **Instalación**
 Para poder utilizar este repositorio, primero deberá clonarlo.
-```
+``` bash
 $ git clone https://github.com/ErikSarriegui/OrangeNet.git
 ```
 
