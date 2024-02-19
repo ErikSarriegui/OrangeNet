@@ -27,7 +27,7 @@ print(preds)
 ```
 
 # **Modelo**
-Actualmente se utiliza un modelo ResNet50 en solitario que obtiene un >97% de precisión sobre los datos de testeo. Sin embargo, por la tipología del problema, en el caso de querer implementar el modelo en un caso de uso real, sería recomendable complementarlo con un modelo de segmentación previo.
+Actualmente se utiliza un modelo ResNet50 en solitario que obtiene un >99% de precisión sobre los datos de testeo. Sin embargo, por la tipología del problema, en el caso de querer implementar el modelo en un caso de uso real, sería recomendable complementarlo con un modelo de segmentación previo. Cabe resaltar que, aunque el modelo haya podido confudir alguna (<1%) enfermedad con otra, en ningún momento ha confundido una naranja enferma con una fresca.
 | Modelo   | Precisión  | Nº Parámetros  |
 |---|---|---|
 | ResNet50  | 99,36%  | 24,033,604  |
