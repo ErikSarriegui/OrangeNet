@@ -28,6 +28,9 @@ print(preds)
 
 # **Modelo**
 Actualmente se utiliza un modelo ResNet50 en solitario que obtiene un >97% de precisión sobre los datos de testeo. Sin embargo, por la tipología del problema, en el caso de querer implementar el modelo en un caso de uso real, sería recomendable complementarlo con un modelo de segmentación previo.
+| Modelo   | Precisión  | Nº Parámetros  |
+|---|---|---|
+| ResNet50  | 99,36%  | 24,033,604  |
 
 # **Tutorial en profundidad**
 PROXIMAMENTE
