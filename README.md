@@ -61,6 +61,8 @@ Devuelve una predicción con la clase de la imagen y la probabilidad.
 
 ### **Ejemplo de uso:**
 ```python
+from pipeline import OrangePipeline
+
 # Cargar la imagen
 imagen = Image.open("imagen.jpg")
 
