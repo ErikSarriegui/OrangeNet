@@ -98,7 +98,20 @@ Crea dos `torch.utils.data.DataLoaders`, uno para entrenamiento y otro para test
 Devuelve una tupla con:
 `train_dataloader`: DataLoader para el conjunto de entrenamiento.
 `test_dataloader`: DataLoader para el conjunto de test.
-`class_names`: Lista con las clases a predecir (nombres de las carpetas del dataset). |
+`class_names`: Lista con las clases a predecir (nombres de las carpetas del dataset).
+
+**[download_data.ipynb:](https://github.com/ErikSarriegui/OrangeNet/blob/main/download_data.ipynb)**
+Descripción del script `download_data.ipynb`
+Funcionalidades:
+
+Descarga el conjunto de datos "Orange Diseases Dataset" de Kaggle.
+Descomprime el archivo `.zip` descargado en la carpeta data.
+Elimina el archivo `.zip` original.
+Detalles:
+  * Autentica la API de Kaggle usando `api.authenticate()` por lo que es importante tener el archivo `.env` con tus credenciales.
+Resultado:
+  * Se crea la carpeta `data` con el conjunto de datos descomprimido.
+  * Se elimina el archivo `orange-diseases-dataset.zip`.
 
 # **Dataset**
 El dataset se puede encontrar en Kaggle [Kaggle](https://www.kaggle.com/datasets/jonathansilva2020/orange-diseases-dataset) y se hace referencia al siguiente [artículo](https://www.researchgate.net/publication/351229211_IDiSSC_Edge-computing-based_Intelligent_Diagnosis_Support_System_for_Citrus_Inspection).
