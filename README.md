@@ -11,6 +11,11 @@ Para poder utilizar este repositorio, primero deberá clonarlo.
 $ git clone https://github.com/ErikSarriegui/OrangeNet.git
 ```
 
+Posteriormente debe instalar las dependencias necesaria.
+``` bash
+$ pip install -r requirements.txt
+```
+
 # **QuickStart**
 ## 1.1 Utilizando `web_ui.ipynb` [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eriksarriegui/orangenet/blob/main/web_ui.ipynb)
 Prueba el modelo con tus propias imágenes
