@@ -205,4 +205,4 @@ Resultado
 El dataset se puede encontrar en Kaggle [Kaggle](https://www.kaggle.com/datasets/jonathansilva2020/orange-diseases-dataset) y se hace referencia al siguiente [artículo](https://www.researchgate.net/publication/351229211_IDiSSC_Edge-computing-based_Intelligent_Diagnosis_Support_System_for_Citrus_Inspection).
 
 # **Licencia**
-Este repositorio queda sujeto a la licencia del dataset utilizado para entrenar el modelo.
+Este repositorio queda sujeto a la licencia del dataset utilizado para entrenar el modelo, [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
